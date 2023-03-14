@@ -79,6 +79,7 @@ if(dealerscore > 21){
 }
 if(dealerscore == 21){
     alert("Dealer Blackjack!")
+    gameongoing = false
 }
 }
 
