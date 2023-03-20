@@ -27,6 +27,15 @@ gameongoing = true
 
 function draw(){
     var drawCard = Math.floor(Math.random() * 10) + 1
+    if(drawCard == 1){
+        document.body.appendChild(<br id="br"></br>)
+
+        document.body.appendChild(<p id="ace">You got an ace!</p>)
+
+        document.body.appendChild(<button onclick="addone" id="one">1</button>);
+
+        document.body.appendChild(<button onclick="addeleven" id="eleven">11</button>);
+    }else{
     score += drawCard
     document.getElementById("Score").innerHTML = score
     if(score > 21){
@@ -40,6 +49,7 @@ function draw(){
         document.getElementById("Money").innerHTML = money
 
     }
+}
 
 }
 
@@ -83,4 +93,27 @@ if(dealerscore == 21){
 }
 }
 
+function addone(){
+    score += 1
+    let x = document.getElementById("one")
+    let y = document.getElementById("eleven")
+    let z = document.getElementById("ace")
+    let a = document.getElementById("br")
+    x.remove()
+    y.remove()
+    z.remove()
+    a.remove()
+}
+
+function addeleven(){
+    score += 11
+    let x = document.getElementById("one")
+    let y = document.getElementById("eleven")
+    let z = document.getElementById("ace")
+    let a = document.getElementById("br")
+    x.remove()
+    y.remove()
+    z.remove()
+    a.remove()
+}
 
