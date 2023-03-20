@@ -34,6 +34,9 @@ gameongoing = true
 }
 
 function draw(){
+    if(gameongoing == false){
+        alert("Please start a Game")
+    }else{
     var drawCard = Math.floor(Math.random() * 10) + 1
     if(drawCard == 1){
         var button1 = document.createElement("BUTTON");
@@ -68,17 +71,32 @@ function draw(){
 
     }
 }
-
+    }
 }
 
 
 
 function stand(){
+    if(gameongoing == false){
+        alert("Please start a Game")
+    }else{
 
 for(dealerscore = dealerscore; dealerscore < score; dealerscore){
     if(dealerscore < score && dealerscore < 17){
 
-        dealerscore += Math.floor(Math.random() * 10) + 1
+        let dealerdraw = Math.floor(Math.random() * 10) + 1
+        console.log(dealerdraw)
+        
+if(dealerdraw == 1){
+    if(dealerscore <= 21 - 11){
+        dealerscore += 11
+    }else if(dealerscore > 21 - 11){
+        dealerscore += 1
+    }else{
+        dealerscore += dealerdraw
+    }
+}
+
         document.getElementById("Dealerscore").innerHTML = dealerscore
     }
 }
@@ -118,6 +136,12 @@ function addone(){
     x.remove()
     y.remove()
     document.getElementById("Score").innerHTML = score
+    if(score == 21){
+        alert("Blackjack!")
+        money += 200
+        gameongoing = false
+        document.getElementById("Money").innerHTML = money
+    }
 }
 
 function addeleven(){
@@ -127,5 +151,11 @@ function addeleven(){
     x.remove()
     y.remove()
     document.getElementById("Score").innerHTML = score
+    if(score == 21){
+        alert("Blackjack!")
+        money += 200
+        gameongoing = false
+        document.getElementById("Money").innerHTML = money
+    }
 }
-
+}
