@@ -1,3 +1,11 @@
+/*
+
+Working on Aces.
+Game Code completely broke down
+Unable to do anything 
+
+*/
+
 var money = 1000
 var score = 0
 var dealerscore = 0
@@ -28,13 +36,23 @@ gameongoing = true
 function draw(){
     var drawCard = Math.floor(Math.random() * 10) + 1
     if(drawCard == 1){
-        document.body.appendChild(<br id="br"></br>)
-
-        document.body.appendChild(<p id="ace">You got an ace!</p>)
-
-        document.body.appendChild(<button onclick="addone" id="one">1</button>);
-
-        document.body.appendChild(<button onclick="addeleven" id="eleven">11</button>);
+        var button1 = document.createElement("BUTTON");
+        button1.type = "button";
+        button1.value = "1";
+        button1.onclick = addone;
+        button1.id = "one"
+        var x = document.createTextNode("1");
+        button1.appendChild(x);
+        document.body.appendChild(button1)
+        var button11 = document.createElement("BUTTON");
+        button11.type = "button";
+        button11.value = "11";
+        button11.onclick = addeleven;
+        button11.id = "eleven"
+        var y = document.createTextNode("11");
+        button11.appendChild(y);
+        document.body.appendChild(button11)
+        alert("ace!")
     }else{
     score += drawCard
     document.getElementById("Score").innerHTML = score
@@ -97,23 +115,17 @@ function addone(){
     score += 1
     let x = document.getElementById("one")
     let y = document.getElementById("eleven")
-    let z = document.getElementById("ace")
-    let a = document.getElementById("br")
     x.remove()
     y.remove()
-    z.remove()
-    a.remove()
+    document.getElementById("Score").innerHTML = score
 }
 
 function addeleven(){
     score += 11
     let x = document.getElementById("one")
     let y = document.getElementById("eleven")
-    let z = document.getElementById("ace")
-    let a = document.getElementById("br")
     x.remove()
     y.remove()
-    z.remove()
-    a.remove()
+    document.getElementById("Score").innerHTML = score
 }
 
